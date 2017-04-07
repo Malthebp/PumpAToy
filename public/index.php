@@ -1,20 +1,18 @@
 <?php 
-require '../vendor/autoload.php';
+require('../config.php');
 
-//Config variable for route
-$router = new AltoRouter();
 
-// require ('../config.php');
-// $router->setBasePath('/laravel/mdu/pumpatoy/');
 
 // map homepage
-// $router->map( 'GET', '/', function() {
-//     require __DIR__ . '../views/test.php';
-// });
+$router->map( 'GET', '/', function() {
+	require __DIR__ . '/views/front-end/index.php';
+});
 
-$router->map('GET', '/test', '../views/test.php', 'test');
 
+
+// match current request url
 $match = $router->match();
+
 
 // call closure or throw 404 status
 if( $match && is_callable( $match['target'] ) ) {
