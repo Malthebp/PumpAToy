@@ -749,6 +749,7 @@ img.r-img{
 .special-products-grid{
 	margin:0px 15px 15px 0;
 	width: 23.7%;
+	background: white;
 }
 .special-products-grid:nth-child(4),.special-products-grid:nth-child(8){
 	margin-right:0px;
@@ -2116,3 +2117,63 @@ span.mail a:hover{
 		font-size: 1.1em;
 	}
 }
+
+/********************ADMIN AREA***********/
+.navbar-static-top {
+  margin-bottom:20px;
+}
+
+.navbar {
+	margin-bottom: 0px;
+}
+i {
+  font-size:16px;
+}
+
+.nav > li > a {
+  color:#787878;
+}
+  
+footer {
+  margin-top:20px;
+  padding-top:20px;
+  padding-bottom:20px;
+  background-color:#efefef;
+}
+
+/* count indicator near icons */
+.nav>li .count {
+  position: absolute;
+  bottom: 12px;
+  right: 6px;
+  font-size: 9px;
+  background: rgba(51,200,51,0.55);
+  color: rgba(255,255,255,0.9);
+  line-height: 1em;
+  padding: 2px 4px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  border-radius: 10px;
+}
+
+#adminNav {
+	background: white;
+	box-shadow: 2px -1px 5px 0px #ccc;
+	min-height: 100vh;
+}
+
+
+.products article img{
+	max-width: 100px;
+}
+
+.radioButtons div {
+	margin: 0px 10px;
+}
+
+.help-block {
+font-size: 0.9rem;
+}
+
