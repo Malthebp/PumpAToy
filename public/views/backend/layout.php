@@ -1,6 +1,6 @@
 <?php
 session_start();
-
+require('../config.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -10,12 +10,12 @@ session_start();
 		<title>Bootstrap 3 Admin</title>
 		<meta name="generator" content="Bootply" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-		<link href="css/bootstrap.css" rel="stylesheet">
-		<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+		<link href="<?php echo $root; ?>css/bootstrap.css" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="<?php echo $root; ?>css/font-awesome.min.css">
 		<!--[if lt IE 9]>
 			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
-		<link href="css/style.css" rel="stylesheet">
+		<link href="<?php echo $root; ?>css/style.css" rel="stylesheet">
 	</head>
 	<body>
 	<!-- header -->

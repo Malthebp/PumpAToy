@@ -8,6 +8,7 @@ class ComposerStaticInitf48ffc211e3bf88ed2c4e961f2bef543
 {
     public static $files = array (
         '2610a18e262a9328d59872ebc8f6b5db' => __DIR__ . '/..' . '/fpdo/fluentpdo/FluentPDO/FluentPDO.php',
+        'a75bcb782b1fb68c836afff6cd5a584c' => __DIR__ . '/..' . '/samayo/bulletproof/src/bulletproof.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -24,6 +25,16 @@ class ComposerStaticInitf48ffc211e3bf88ed2c4e961f2bef543
         ),
     );
 
+    public static $prefixesPsr0 = array (
+        'U' => 
+        array (
+            'Upload' => 
+            array (
+                0 => __DIR__ . '/..' . '/codeguy/upload/src',
+            ),
+        ),
+    );
+
     public static $classMap = array (
         'AltoRouter' => __DIR__ . '/..' . '/altorouter/altorouter/AltoRouter.php',
     );
@@ -33,6 +44,7 @@ class ComposerStaticInitf48ffc211e3bf88ed2c4e961f2bef543
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInitf48ffc211e3bf88ed2c4e961f2bef543::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInitf48ffc211e3bf88ed2c4e961f2bef543::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInitf48ffc211e3bf88ed2c4e961f2bef543::$prefixesPsr0;
             $loader->classMap = ComposerStaticInitf48ffc211e3bf88ed2c4e961f2bef543::$classMap;
 
         }, null, ClassLoader::class);

@@ -7,4 +7,5 @@ $baseDir = dirname($vendorDir);
 
 return array(
     '2610a18e262a9328d59872ebc8f6b5db' => $vendorDir . '/fpdo/fluentpdo/FluentPDO/FluentPDO.php',
+    'a75bcb782b1fb68c836afff6cd5a584c' => $vendorDir . '/samayo/bulletproof/src/bulletproof.php',
 );

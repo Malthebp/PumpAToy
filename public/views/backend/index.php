@@ -2,6 +2,10 @@
 
 include ('layout.php');
 
+
+$products = $fpdo->from('ptoys_product');
+
+
 ?>
 
 
@@ -16,18 +20,25 @@ include ('layout.php');
         </a>
         </h2>
     </article>
+<?php 
+foreach ($products as $product)
+{
+?> 
     <!-- center left-->
     <article class="col-md-3 special-products-grid text-center">
         <a class="brand-name" href="single-page.html">
-        <img src="images/b1.jpg" title="name" />
         </a>
         <a class="product-here" href="single-page.html">
-        <img src="images/p1.jpg" title="product-name" />
+        <img src="<?php echo $product['image']; ?>" title="product-name" />
         </a>
         <h4>
-        <a href="single-page.html">Nike Roshe Run</a>
+        <a href="single-page.html"><?php echo $product['name']; ?></a>
+        <p><?php echo $product['price']; ?> Dkk. </p>
         </h4>
     </article>
+<?php
+}
+?>
 <!--/col-span-9-->
 </div>
 

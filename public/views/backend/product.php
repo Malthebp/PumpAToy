@@ -1,10 +1,11 @@
 <?php
 include ('layout.php');
 
+foreach ($product as $p){
 ?>
 
 
-<h1>New product</h1>
+<h1><?php echo $p['name']; ?></h1>
 <hr>
 
 <div>
@@ -20,6 +21,8 @@ include ('layout.php');
       if(!empty($_SESSION['oldvals']['name']))
       {
         echo $_SESSION['oldvals']['name'];
+      } else {
+        echo $p['name'];
       }
       ?>">
       <span class="help-block"><?php if(!empty($_SESSION['errors']['name']))
@@ -40,6 +43,8 @@ include ('layout.php');
       if(!empty($_SESSION['oldvals']['description']))
       {
         echo $_SESSION['oldvals']['description'];
+      } else {
+        echo $p['description'];
       }
       ?></textarea>
       <span class="help-block"><?php if(!empty($_SESSION['errors']['description']))
@@ -60,6 +65,8 @@ include ('layout.php');
       if(!empty($_SESSION['oldvals']['price']))
       {
         echo $_SESSION['oldvals']['price'];
+      } else {
+        echo $p['price'];
       }
       ?>">
           <span class="help-block"><?php if(!empty($_SESSION['errors']['price']))
@@ -112,17 +119,25 @@ include ('layout.php');
       ?>">
         <label for="stock" class="col-sm-2 control-label">Stock *</label>
         <section class="col-sm-10">
-          <input type="number" min="0" name="stock" placeholder="5" class="form-control">
+          <input type="number" min="0" name="stock" placeholder="5" class="form-control" value="<?php 
+      if(!empty($_SESSION['oldvals']['stock']))
+      {
+        echo $_SESSION['oldvals']['stock'];
+      } else {
+        echo $p['stock'];
+      }
+      ?>">
           <span class="help-block"><?php if(!empty($_SESSION['errors']['stock']))
       {
         echo $_SESSION['errors']['stock'];
-      }
+      } 
       ?></span>
         </section>
     </article>
 <article class="form-group">
     <label for="image" class="col-sm-2 control-label">Image</label>
     <section class="col-sm-10">
+      <img src="<?php echo $root . $p['image']; ?>">
       <input type="file" min="0" name="image" placeholder="5" class="form-control">
       <?php if(!empty($_SESSION['errors']['image']))
       {
@@ -137,7 +152,6 @@ include ('layout.php');
     </div>
   </div>
 </form>
-
 </div>
 
 <?php
@@ -145,5 +159,5 @@ unset($_SESSION['errors']);
 unset($_SESSION['oldvals']);
 
 include ('footer.php');
-
+}
 ?>
