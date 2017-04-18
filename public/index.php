@@ -2,8 +2,9 @@
 require('../config.php');
 define('PUBLICROOT', '/laravel/mdu/pumpatoy/public/');
 
-use Controllers\ProductController;
 // include ('../controllers/ProductController.php');
+
+require('../app/product.php');
 
 	// map homepage
 $router->map( 'GET', '/', function() {
@@ -12,21 +13,25 @@ $router->map( 'GET', '/', function() {
 
 
 /*******Routing for admin*******/
-$router->map( 'GET', '/admin', function() {
+$router->map( 'GET', '/public/admin', function() {
 	require __DIR__ . '/views/backend/index.php';
 });
 
-$router->map( 'GET', '/admin/products', function() {
-	require __DIR__ . '/views/backend/products.php';
+$router->map( 'GET', '/public/admin/products', function() {
+	$product = new product();
+	$product->showAll();
 });
 
 //New Products
-$router->map( 'GET', '/admin/product/new', function() {
-	require __DIR__ . '/views/backend/newproduct.php';
+$router->map( 'GET', '/public/admin/product/new', function() {
+	$product = new product();
+	$product->newProduct();
 });
 
-$router->map( 'POST', '/admin/product/new', function() {
-	require __DIR__ . '/process/products/store.php';
+$router->map( 'POST', '/public/admin/product/new', function() {
+	//require __DIR__ . '/process/products/store.php';
+	$product = new product();
+	$product->create();
 });
 
 //Product
@@ -40,7 +45,7 @@ $display_item = function($id) {
    require __DIR__ . '/views/backend/product.php';
 };
 
-$router->map('GET','/admin/product/[i:id]', $display_item, 'content');
+$router->map('GET','/public/admin/product/[i:id]', $display_item, 'content');
 
 
 
