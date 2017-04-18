@@ -1,7 +1,7 @@
 <?php
 include ('layout.php');
 
-foreach ($product as $p){
+
 ?>
 
 
@@ -9,7 +9,7 @@ foreach ($product as $p){
 <hr>
 
 <div>
-<form action="newproduct" method="POST" enctype="multipart/form-data" class="form-horizontal col-lg-9">
+<form action="update" method="POST" enctype="multipart/form-data" class="form-horizontal col-lg-9">
   <article class="form-group <?php if(!empty($_SESSION['errors']['name']))
       {
         echo 'has-error';
@@ -89,6 +89,9 @@ foreach ($product as $p){
         <div>
 
             <input type="radio" name="available" id="availableYes"  <?php 
+            if($p['available'] == 1){
+              echo 'checked';
+            }
           if(!empty($_SESSION['oldvals']['available']) && $_SESSION['oldvals']['available'] == true)
           {
             echo 'checked';
@@ -98,6 +101,9 @@ foreach ($product as $p){
         </div>
         <div>
             <input type="radio" name="available" id="availableNo" value="0" <?php 
+            if($p['available'] == 0){
+              echo 'checked';
+            }
           if(!empty($_SESSION['oldvals']['available']) && $_SESSION['oldvals']['available'] == 0)
           {
             echo 'checked';
@@ -137,8 +143,14 @@ foreach ($product as $p){
 <article class="form-group">
     <label for="image" class="col-sm-2 control-label">Image</label>
     <section class="col-sm-10">
-      <img src="<?php echo $root . $p['image']; ?>">
-      <input type="file" min="0" name="image" placeholder="5" class="form-control">
+    <div class="col-md-6">
+        <input type="file" min="0" name="image" placeholder="5" class="form-control" value="<?php echo $p['image']; ?>">
+      </div>
+      <div class="col-md-6">
+        <img class="img-responsive" src="<?php echo $root . $p['image']; ?>">
+      </div>
+      
+
       <?php if(!empty($_SESSION['errors']['image']))
       {
         echo $_SESSION['errors']['image'];
@@ -148,7 +160,7 @@ foreach ($product as $p){
 </article>
   <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
-      <button type="submit" class="btn btn-success">Create product</button>
+      <button type="submit" class="btn btn-primary">Update product</button>
     </div>
   </div>
 </form>
@@ -159,5 +171,5 @@ unset($_SESSION['errors']);
 unset($_SESSION['oldvals']);
 
 include ('footer.php');
-}
+
 ?>

@@ -1,27 +1,31 @@
 <?php 
 require('../config.php');
+define('PUBLICROOT', '/laravel/mdu/pumpatoy/public/');
 
 use Controllers\ProductController;
 // include ('../controllers/ProductController.php');
 
-$test = "Hello world";
-// map homepage
+	// map homepage
 $router->map( 'GET', '/', function() {
 	require __DIR__ . '/views/front-end/index.php';
 });
 
 
 /*******Routing for admin*******/
-$router->map( 'GET', '/products', function() {
+$router->map( 'GET', '/admin', function() {
 	require __DIR__ . '/views/backend/index.php';
 });
 
+$router->map( 'GET', '/admin/products', function() {
+	require __DIR__ . '/views/backend/products.php';
+});
+
 //New Products
-$router->map( 'GET', '/newproduct', function() {
+$router->map( 'GET', '/admin/product/new', function() {
 	require __DIR__ . '/views/backend/newproduct.php';
 });
 
-$router->map( 'POST', '/newproduct', function() {
+$router->map( 'POST', '/admin/product/new', function() {
 	require __DIR__ . '/process/products/store.php';
 });
 
@@ -32,11 +36,11 @@ $router->map( 'POST', '/newproduct', function() {
 
 $display_item = function($id) {
    global $fpdo;
-   $product = $fpdo->from('ptoys_product', 1);
+   $p = $fpdo->from('ptoys_product',$id)->fetch();
    require __DIR__ . '/views/backend/product.php';
 };
 
-$router->map('GET','/product/[i:id]',$display_item, 'content');
+$router->map('GET','/admin/product/[i:id]', $display_item, 'content');
 
 
 
