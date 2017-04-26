@@ -1,4 +1,6 @@
 <?php 
+session_start();
+
 require('../config.php');
 define('PUBLICROOT', '/laravel/mdu/pumpatoy/public/');
 
@@ -34,18 +36,24 @@ $router->map( 'POST', '/public/admin/product/new', function() {
 });
 
 //Product
-// $router->map( 'GET', '/product/[i:id]', function() {
-// 	require __DIR__ . '/views/backend/product.php';
-// });
-
-$display_item = function($id) {
-   global $fpdo;
-   $p = $fpdo->from('ptoys_product',$id)->fetch();
-   require __DIR__ . '/views/backend/product.php';
-};
+$router->map( 'GET', '/public/admin/product/[i:id]/', function($id) {
+	$product = new product();
+	$p = $product->showProduct($id);
+	require __DIR__ . '/views/backend/product.php';
+});
 
 
-$router->map('GET','/public/admin/product/[i:id]', $display_item, 'content');
+$router->map( 'POST', '/public/admin/product/[i:id]/delete', function($id) {
+	$product = new product();
+	$p = $product->delete($id);
+	$p ? header('location: products') : header('location: product/'. $p);
+});
+
+$router->map( 'POST', '/public/admin/product/[i:id]/update', function($id) {
+	$product = new product();
+	$p = $product->update($id);
+	header('location: ../../product/'.$p.'/');
+});
 
 
 // match current request url
