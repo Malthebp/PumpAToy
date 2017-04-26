@@ -9,8 +9,13 @@ define('PUBLICROOT', '/laravel/mdu/pumpatoy/public/');
 require('../app/product.php');
 
 	// map homepage
-$router->map( 'GET', '/', function() {
+$router->map( 'GET', '/public/', function() {
 	require __DIR__ . '/views/front-end/index.php';
+});
+
+
+$router->map( 'GET', '/public/lol', function() {
+	require __DIR__ . '/views/front-end/single-page.php';
 });
 
 
@@ -32,7 +37,7 @@ $router->map( 'POST', '/public/admin/product/new', function() {
 	//require __DIR__ . '/process/products/store.php';
 	$product = new product();
 	$product = $product->create();
-	$product ? header('location: product/'.$product) : header('location: new');
+	$product ? header('location: '.$product.'/') : header('location: new');
 });
 
 //Product
@@ -46,7 +51,7 @@ $router->map( 'GET', '/public/admin/product/[i:id]/', function($id) {
 $router->map( 'POST', '/public/admin/product/[i:id]/delete', function($id) {
 	$product = new product();
 	$p = $product->delete($id);
-	$p ? header('location: products') : header('location: product/'. $p);
+	$p ? header('location: ../../products') : header('location: product/'. $p);
 });
 
 $router->map( 'POST', '/public/admin/product/[i:id]/update', function($id) {
