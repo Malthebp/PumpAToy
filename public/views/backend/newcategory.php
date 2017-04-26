@@ -4,7 +4,7 @@ include ('layout.php');
 ?>
 
 
-<h1>New product</h1>
+<h1>New category</h1>
 <hr>
 
 <div>
@@ -14,7 +14,7 @@ include ('layout.php');
         echo 'has-error';
       }
       ?>">
-    <label for="name" class="col-sm-2 control-label">Product Name *</label>
+    <label for="name" class="col-sm-2 control-label">Category Name *</label>
     <section class="col-sm-10">
       <input type="text" class="form-control" id="name" name="name" placeholder="Name" value="<?php 
       if(!empty($_SESSION['oldvals']['name']))
@@ -29,58 +29,17 @@ include ('layout.php');
       ?></span>
     </section>
   </article>
-  <article class="form-group <?php if(!empty($_SESSION['errors']['description']))
-      {
-        echo 'has-error';
-      }
-      ?>">
-    <label for="description" class="col-sm-2 control-label">Product Description *</label>
-    <section class="col-sm-10">
-      <textarea id="description" class="form-control" name="description" placeholder="Description"><?php 
-      if(!empty($_SESSION['oldvals']['description']))
-      {
-        echo $_SESSION['oldvals']['description'];
-      }
-      ?></textarea>
-      <span class="help-block"><?php if(!empty($_SESSION['errors']['description']))
-      {
-        echo $_SESSION['errors']['description'];
-      }
-      ?></span>
-    </section>
-  </article>
-    <article class="form-group <?php if(!empty($_SESSION['errors']['price']))
-      {
-        echo 'has-error';
-      }
-      ?>">
-        <label for="price" class="col-sm-2 control-label">Product Price *</label>
-        <section class="col-sm-10">
-          <input type="text" name="price" placeholder="10.99" class="form-control" value="<?php 
-      if(!empty($_SESSION['oldvals']['price']))
-      {
-        echo $_SESSION['oldvals']['price'];
-      }
-      ?>">
-          <span class="help-block"><?php if(!empty($_SESSION['errors']['price']))
-      {
-        echo $_SESSION['errors']['price'];
-      }
-      ?></span>
-        </section>
-
-    </article>
+ 
   <article class="form-group <?php if(!empty($_SESSION['errors']['available']))
       {
         echo 'has-error';
       }
       ?>">
     <label for="available" class="col-sm-2 control-label">
-    Product available? *
+    Category active? *
     </label>
     <section class="col-sm-10 radioButtons">
         <div>
-
             <input type="radio" name="available" id="availableYes"  <?php 
           if(!empty($_SESSION['oldvals']['available']) && $_SESSION['oldvals']['available'] == true)
           {
@@ -105,21 +64,6 @@ include ('layout.php');
       ?></span>
     </section>
   </article>
-    <article class="form-group <?php if(!empty($_SESSION['errors']['stock']))
-      {
-        echo 'has-error';
-      }
-      ?>">
-        <label for="stock" class="col-sm-2 control-label">Stock *</label>
-        <section class="col-sm-10">
-          <input type="number" min="0" name="stock" placeholder="5" class="form-control">
-          <span class="help-block"><?php if(!empty($_SESSION['errors']['stock']))
-      {
-        echo $_SESSION['errors']['stock'];
-      }
-      ?></span>
-        </section>
-    </article>
 <article class="form-group">
     <label for="image" class="col-sm-2 control-label">Image</label>
     <section class="col-sm-10">
@@ -133,7 +77,7 @@ include ('layout.php');
 </article>
   <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
-      <button type="submit" class="btn btn-success">Create product</button>
+      <button type="submit" class="btn btn-success">Create category</button>
     </div>
   </div>
 </form>

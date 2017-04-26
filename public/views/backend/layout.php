@@ -52,6 +52,8 @@ require('../config.php');
             <ul class="nav nav-stacked">
                 <li class="active"> <a href="<?php echo PUBLICROOT; ?>admin/products"><i class="fa fa-th" aria-hidden="true"></i>
                 Products</a></li>
+                <li class="active"> <a href="<?php echo PUBLICROOT; ?>admin/categories"><i class="fa fa-tags" aria-hidden="true"></i>
+                Categories</a></li>
             </ul>
         </div>
         <!-- /col-3 -->

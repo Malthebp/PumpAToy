@@ -1,10 +1,7 @@
 <?php
-
 include ('layout.php');
 
-
 $products = $fpdo->from('ptoys_product');
-
 
 ?>
 

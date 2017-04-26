@@ -30,51 +30,6 @@ include ('layout.php');
       ?></span>
     </section>
   </article>
-  <article class="form-group <?php if(!empty($_SESSION['errors']['description']))
-      {
-        echo 'has-error';
-      }
-      ?>">
-    <label for="description" class="col-sm-2 control-label">Product Description *</label>
-    <section class="col-sm-10">
-      <textarea id="description" class="form-control" name="description" placeholder="Description"><?php 
-      if(!empty($_SESSION['oldvals']['description']))
-      {
-        echo $_SESSION['oldvals']['description'];
-      } else {
-        echo $p['description'];
-      }
-      ?></textarea>
-      <span class="help-block"><?php if(!empty($_SESSION['errors']['description']))
-      {
-        echo $_SESSION['errors']['description'];
-      }
-      ?></span>
-    </section>
-  </article>
-    <article class="form-group <?php if(!empty($_SESSION['errors']['price']))
-      {
-        echo 'has-error';
-      }
-      ?>">
-        <label for="price" class="col-sm-2 control-label">Product Price *</label>
-        <section class="col-sm-10">
-          <input type="text" name="price" placeholder="10.99" class="form-control" value="<?php 
-      if(!empty($_SESSION['oldvals']['price']))
-      {
-        echo $_SESSION['oldvals']['price'];
-      } else {
-        echo $p['price'];
-      }
-      ?>">
-          <span class="help-block"><?php if(!empty($_SESSION['errors']['price']))
-      {
-        echo $_SESSION['errors']['price'];
-      }
-      ?></span>
-        </section>
-
-    </article>
   <article class="form-group <?php if(!empty($_SESSION['errors']['available']))
       {
         echo 'has-error';
@@ -119,28 +74,6 @@ include ('layout.php');
       ?></span>
     </section>
   </article>
-    <article class="form-group <?php if(!empty($_SESSION['errors']['stock']))
-      {
-        echo 'has-error';
-      }
-      ?>">
-        <label for="stock" class="col-sm-2 control-label">Stock *</label>
-        <section class="col-sm-10">
-          <input type="number" min="0" name="stock" placeholder="5" class="form-control" value="<?php 
-      if(!empty($_SESSION['oldvals']['stock']))
-      {
-        echo $_SESSION['oldvals']['stock'];
-      } else {
-        echo $p['stock'];
-      }
-      ?>">
-          <span class="help-block"><?php if(!empty($_SESSION['errors']['stock']))
-      {
-        echo $_SESSION['errors']['stock'];
-      } 
-      ?></span>
-        </section>
-    </article>
 <article class="form-group">
     <label for="image" class="col-sm-2 control-label">Image</label>
     <section class="col-sm-10">
@@ -159,7 +92,7 @@ include ('layout.php');
 </article>
   <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
-      <button type="submit" class="btn btn-primary">Update product</button>
+      <button type="submit" class="btn btn-primary">Update category</button>
     </div>
   </div>
 </form>
