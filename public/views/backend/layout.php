@@ -16,6 +16,8 @@ require('../config.php');
 			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
 		<link href="<?php echo $root; ?>css/style.css" rel="stylesheet">
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
 	</head>
 	<body>
 	<!-- header -->
@@ -50,7 +52,7 @@ require('../config.php');
         <div class="col-sm-2" id="adminNav">
             <!-- Left column -->
             <ul class="nav nav-stacked">
-                <li class="active"> <a href="products"><i class="fa fa-th" aria-hidden="true"></i>
+                <li class="active"> <a href="<?php echo $root; ?>products"><i class="fa fa-th" aria-hidden="true"></i>
                 Products</a></li>
             </ul>
         </div>

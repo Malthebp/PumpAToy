@@ -26,17 +26,16 @@ $router->map( 'POST', '/newproduct', function() {
 });
 
 //Product
-// $router->map( 'GET', '/product/[i:id]', function() {
-// 	require __DIR__ . '/views/backend/product.php';
-// });
-
-$display_item = function($id) {
+function getProduct($id) {
    global $fpdo;
-   $product = $fpdo->from('ptoys_product', 1);
+   $product = $fpdo->from('ptoys_product', $id);
    require __DIR__ . '/views/backend/product.php';
 };
+$router->map('GET','/product/[i:id]', 'getProduct', 'content');
+$router->map( 'PATCH', '/product', function() {
+	require __DIR__ . '/process/products/update.php';
+});
 
-$router->map('GET','/product/[i:id]',$display_item, 'content');
 
 
 

@@ -9,7 +9,8 @@ foreach ($product as $p){
 <hr>
 
 <div>
-<form action="newproduct" method="POST" enctype="multipart/form-data" class="form-horizontal col-lg-9">
+<form action="product" method="PATCH" enctype="multipart/form-data" class="form-horizontal col-lg-9">
+<input type="hidden" name="id" value="<?php echo $p['id']; ?>">
   <article class="form-group <?php if(!empty($_SESSION['errors']['name']))
       {
         echo 'has-error';
@@ -92,7 +93,8 @@ foreach ($product as $p){
           if(!empty($_SESSION['oldvals']['available']) && $_SESSION['oldvals']['available'] == true)
           {
             echo 'checked';
-          }
+          } if($p['available'] == 1)
+          {echo 'checked'; } 
       ?> value="1">
             <label for="availableYes">Yes</label>
         </div>
@@ -101,7 +103,9 @@ foreach ($product as $p){
           if(!empty($_SESSION['oldvals']['available']) && $_SESSION['oldvals']['available'] == 0)
           {
             echo 'checked';
-          } 
+          }
+          if($p['available'] == 0)
+          {echo 'checked'; } 
           ?> >
             <label for="availableNo">No</label>
         </div>
@@ -137,8 +141,13 @@ foreach ($product as $p){
 <article class="form-group">
     <label for="image" class="col-sm-2 control-label">Image</label>
     <section class="col-sm-10">
-      <img src="<?php echo $root . $p['image']; ?>">
-      <input type="file" min="0" name="image" placeholder="5" class="form-control">
+      <div class="col-sm-6">
+        <input type="file" min="0" name="image" placeholder="5" class="form-control col-sm-6">
+      </div>
+      <div class="col-sm-6">
+        <img class="img-responsive" src="<?php echo $root . $p['image']; ?>">
+      </div>
+      
       <?php if(!empty($_SESSION['errors']['image']))
       {
         echo $_SESSION['errors']['image'];
@@ -148,12 +157,11 @@ foreach ($product as $p){
 </article>
   <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
-      <button type="submit" class="btn btn-success">Create product</button>
+      <button type="submit" class="btn btn-success">Update product</button>
     </div>
   </div>
 </form>
 </div>
-
 <?php
 unset($_SESSION['errors']);
 unset($_SESSION['oldvals']);
