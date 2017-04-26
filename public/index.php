@@ -18,20 +18,19 @@ $router->map( 'GET', '/public/admin', function() {
 });
 
 $router->map( 'GET', '/public/admin/products', function() {
-	$product = new product();
-	$product->showAll();
+	require $_SERVER['DOCUMENT_ROOT'].PUBLICROOT.'/views/backend/products.php';
 });
 
 //New Products
 $router->map( 'GET', '/public/admin/product/new', function() {
-	$product = new product();
-	$product->newProduct();
+	require $_SERVER['DOCUMENT_ROOT'].PUBLICROOT.'/views/backend/newproduct.php';
 });
 
 $router->map( 'POST', '/public/admin/product/new', function() {
 	//require __DIR__ . '/process/products/store.php';
 	$product = new product();
-	$product->create();
+	$product = $product->create();
+	$product ? header('location: product/'.$product) : header('location: new');
 });
 
 //Product
@@ -45,12 +44,8 @@ $display_item = function($id) {
    require __DIR__ . '/views/backend/product.php';
 };
 
+
 $router->map('GET','/public/admin/product/[i:id]', $display_item, 'content');
-
-
-
-
-
 
 
 // match current request url
