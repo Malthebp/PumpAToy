@@ -1,5 +1,4 @@
 <?php
-session_start();
 require('../config.php');
 ?>
 <!DOCTYPE html>
@@ -10,14 +9,13 @@ require('../config.php');
 		<title>Bootstrap 3 Admin</title>
 		<meta name="generator" content="Bootply" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-		<link href="<?php echo $root; ?>css/bootstrap.css" rel="stylesheet">
-		<link rel="stylesheet" type="text/css" href="<?php echo $root; ?>css/font-awesome.min.css">
+		<link href="<?php echo PUBLICROOT; ?>css/bootstrap.css" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="<?php echo PUBLICROOT; ?>css/font-awesome.min.css">
 		<!--[if lt IE 9]>
 			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
-		<link href="<?php echo $root; ?>css/style.css" rel="stylesheet">
-
         <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+		<link href="<?php echo PUBLICROOT; ?>css/style.css" rel="stylesheet">
 	</head>
 	<body>
 	<!-- header -->
@@ -52,7 +50,7 @@ require('../config.php');
         <div class="col-sm-2" id="adminNav">
             <!-- Left column -->
             <ul class="nav nav-stacked">
-                <li class="active"> <a href="<?php echo $root; ?>products"><i class="fa fa-th" aria-hidden="true"></i>
+                <li class="active"> <a href="<?php echo PUBLICROOT; ?>admin/products"><i class="fa fa-th" aria-hidden="true"></i>
                 Products</a></li>
             </ul>
         </div>

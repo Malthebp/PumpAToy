@@ -1,7 +1,6 @@
 <?php
 include ('layout.php');
 
-foreach ($product as $p){
 ?>
 
 
@@ -9,8 +8,7 @@ foreach ($product as $p){
 <hr>
 
 <div>
-<form action="product" method="PATCH" enctype="multipart/form-data" class="form-horizontal col-lg-9">
-<input type="hidden" name="id" value="<?php echo $p['id']; ?>">
+<form action="update" method="POST" enctype="multipart/form-data" class="form-horizontal col-lg-9">
   <article class="form-group <?php if(!empty($_SESSION['errors']['name']))
       {
         echo 'has-error';
@@ -90,6 +88,9 @@ foreach ($product as $p){
         <div>
 
             <input type="radio" name="available" id="availableYes"  <?php 
+            if($p['available'] == 1){
+              echo 'checked';
+            }
           if(!empty($_SESSION['oldvals']['available']) && $_SESSION['oldvals']['available'] == true)
           {
             echo 'checked';
@@ -100,6 +101,9 @@ foreach ($product as $p){
         </div>
         <div>
             <input type="radio" name="available" id="availableNo" value="0" <?php 
+            if($p['available'] == 0){
+              echo 'checked';
+            }
           if(!empty($_SESSION['oldvals']['available']) && $_SESSION['oldvals']['available'] == 0)
           {
             echo 'checked';
@@ -141,6 +145,7 @@ foreach ($product as $p){
 <article class="form-group">
     <label for="image" class="col-sm-2 control-label">Image</label>
     <section class="col-sm-10">
+<<<<<<< HEAD
       <div class="col-sm-6">
         <input type="file" min="0" name="image" placeholder="5" class="form-control col-sm-6">
       </div>
@@ -148,6 +153,16 @@ foreach ($product as $p){
         <img class="img-responsive" src="<?php echo $root . $p['image']; ?>">
       </div>
       
+=======
+    <div class="col-md-6">
+        <input type="file" min="0" name="image" placeholder="5" class="form-control" value="<?php echo $p['image']; ?>">
+      </div>
+      <div class="col-md-6">
+        <img class="img-responsive" src="<?php echo $root . $p['image']; ?>">
+      </div>
+      
+
+>>>>>>> 5bc5d56a8e63ef4f4e4c8d756ffd139892a3e7a0
       <?php if(!empty($_SESSION['errors']['image']))
       {
         echo $_SESSION['errors']['image'];
@@ -157,15 +172,29 @@ foreach ($product as $p){
 </article>
   <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
+<<<<<<< HEAD
       <button type="submit" class="btn btn-success">Update product</button>
+=======
+      <button type="submit" class="btn btn-primary">Update product</button>
+>>>>>>> 5bc5d56a8e63ef4f4e4c8d756ffd139892a3e7a0
     </div>
   </div>
 </form>
+<form action="delete" method="post">
+  <button type="submit">Delete</button>
+</form>
 </div>
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 5bc5d56a8e63ef4f4e4c8d756ffd139892a3e7a0
 <?php
+
+
 unset($_SESSION['errors']);
 unset($_SESSION['oldvals']);
 
 include ('footer.php');
-}
+
 ?>

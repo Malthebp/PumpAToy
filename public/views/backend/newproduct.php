@@ -1,6 +1,7 @@
 <?php
 include ('layout.php');
 
+
 ?>
 
 
@@ -8,7 +9,7 @@ include ('layout.php');
 <hr>
 
 <div>
-<form action="newproduct" method="POST" enctype="multipart/form-data" class="form-horizontal col-lg-9">
+<form action="new" method="POST" enctype="multipart/form-data" class="form-horizontal col-lg-9">
   <article class="form-group <?php if(!empty($_SESSION['errors']['name']))
       {
         echo 'has-error';

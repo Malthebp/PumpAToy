@@ -1,46 +1,75 @@
 <?php 
+session_start();
 require('../config.php');
+define('PUBLICROOT', '/laravel/mdu/pumpatoy/public/');
 
-use Controllers\ProductController;
 // include ('../controllers/ProductController.php');
 
-$test = "Hello world";
-// map homepage
-$router->map( 'GET', '/', function() {
+require('../app/product.php');
+require('../app/user.php');
+
+	// map homepage
+$router->map( 'GET', '/public/', function() {
 	require __DIR__ . '/views/front-end/index.php';
+});
+	// Register
+$router->map( 'GET', '/register', function() {
+	require __DIR__ . '/views/front-end/register.php';
+});
+	// User
+$router->map( 'POST', '/user', function() {
+	$loginUser = new userAuth();
+	$loginUser = $loginUser->login();
+
+	//require __DIR__ . '/controllers/user.php';
+});
+
+
+$router->map( 'GET', '/public/lol', function() {
+	require __DIR__ . '/views/front-end/single-page.php';
 });
 
 
 /*******Routing for admin*******/
-$router->map( 'GET', '/products', function() {
+$router->map( 'GET', '/public/admin', function() {
 	require __DIR__ . '/views/backend/index.php';
 });
 
-//New Products
-$router->map( 'GET', '/newproduct', function() {
-	require __DIR__ . '/views/backend/newproduct.php';
+$router->map( 'GET', '/public/admin/products', function() {
+	require $_SERVER['DOCUMENT_ROOT'].PUBLICROOT.'/views/backend/products.php';
 });
 
-$router->map( 'POST', '/newproduct', function() {
-	require __DIR__ . '/process/products/store.php';
+//New Products
+$router->map( 'GET', '/public/admin/product/new', function() {
+	require $_SERVER['DOCUMENT_ROOT'].PUBLICROOT.'/views/backend/newproduct.php';
+});
+
+$router->map( 'POST', '/public/admin/product/new', function() {
+	//require __DIR__ . '/process/products/store.php';
+	$product = new product();
+	$product = $product->create();
+	$product ? header('location: '.$product.'/') : header('location: new');
 });
 
 //Product
-function getProduct($id) {
-   global $fpdo;
-   $product = $fpdo->from('ptoys_product', $id);
-   require __DIR__ . '/views/backend/product.php';
-};
-$router->map('GET','/product/[i:id]', 'getProduct', 'content');
-$router->map( 'PATCH', '/product', function() {
-	require __DIR__ . '/process/products/update.php';
+$router->map( 'GET', '/public/admin/product/[i:id]/', function($id) {
+	$product = new product();
+	$p = $product->showProduct($id);
+	require __DIR__ . '/views/backend/product.php';
 });
 
 
+$router->map( 'POST', '/public/admin/product/[i:id]/delete', function($id) {
+	$product = new product();
+	$p = $product->delete($id);
+	$p ? header('location: ../../products') : header('location: product/'. $p);
+});
 
-
-
-
+$router->map( 'POST', '/public/admin/product/[i:id]/update', function($id) {
+	$product = new product();
+	$p = $product->update($id);
+	header('location: ../../product/'.$p.'/');
+});
 
 
 // match current request url
