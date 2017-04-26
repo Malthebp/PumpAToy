@@ -46,8 +46,24 @@ $router->map( 'POST', '/public/admin/product/new', function() {
 	$product ? header('location: product/'.$product) : header('location: new');
 });
 
-$router->map( 'POST', '/admin/product/new', function() {
-	require __DIR__ . '/process/products/store.php';
+//Product
+$router->map( 'GET', '/public/admin/product/[i:id]/', function($id) {
+	$product = new product();
+	$p = $product->showProduct($id);
+	require __DIR__ . '/views/backend/product.php';
+});
+
+
+$router->map( 'POST', '/public/admin/product/[i:id]/delete', function($id) {
+	$product = new product();
+	$p = $product->delete($id);
+	$p ? header('location: products') : header('location: product/'. $p);
+});
+
+$router->map( 'POST', '/public/admin/product/[i:id]/update', function($id) {
+	$product = new product();
+	$p = $product->update($id);
+	header('location: ../../product/'.$p.'/');
 });
 
 

@@ -1,7 +1,6 @@
 <?php
 include ('layout.php');
 
-
 ?>
 
 
@@ -164,9 +163,15 @@ include ('layout.php');
     </div>
   </div>
 </form>
+<form action="delete" method="post">
+  <button type="submit">Delete</button>
+</form>
 </div>
 
+
 <?php
+
+
 unset($_SESSION['errors']);
 unset($_SESSION['oldvals']);
 
