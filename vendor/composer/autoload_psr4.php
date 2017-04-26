@@ -6,5 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'ZxcvbnPhp\\' => array($vendorDir . '/bjeavons/zxcvbn-php/src'),
+    'PHPAuth\\' => array($vendorDir . '/phpauth/phpauth'),
     'Cart\\' => array($vendorDir . '/mike182uk/cart/src'),
 );

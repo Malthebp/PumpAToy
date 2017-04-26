@@ -1,16 +1,27 @@
 <?php 
 session_start();
-
 require('../config.php');
-define('PUBLICROOT', '/laravel/mdu/pumpatoy/public/');
+define('PUBLICROOT', '/git/pumpatoy/public/');
 
 // include ('../controllers/ProductController.php');
 
 require('../app/product.php');
+require('../app/user.php');
 
 	// map homepage
 $router->map( 'GET', '/public/', function() {
 	require __DIR__ . '/views/front-end/index.php';
+});
+	// Register
+$router->map( 'GET', '/register', function() {
+	require __DIR__ . '/views/front-end/register.php';
+});
+	// User
+$router->map( 'POST', '/user', function() {
+	$loginUser = new userAuth();
+	$loginUser = $loginUser->login();
+
+	//require __DIR__ . '/controllers/user.php';
 });
 
 
