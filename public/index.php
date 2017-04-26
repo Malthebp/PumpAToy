@@ -1,6 +1,6 @@
 <?php 
 require('../config.php');
-define('PUBLICROOT', '/laravel/mdu/pumpatoy/public/');
+define('PUBLICROOT', '/git/pumpatoy/public/');
 
 use Controllers\ProductController;
 // include ('../controllers/ProductController.php');
@@ -8,6 +8,14 @@ use Controllers\ProductController;
 	// map homepage
 $router->map( 'GET', '/', function() {
 	require __DIR__ . '/views/front-end/index.php';
+});
+	// Register
+$router->map( 'GET', '/register', function() {
+	require __DIR__ . '/views/front-end/register.php';
+});
+	// User
+$router->map( 'POST', '/user', function() {
+	require __DIR__ . '/controllers/user.php';
 });
 
 
@@ -29,6 +37,10 @@ $router->map( 'POST', '/admin/product/new', function() {
 	require __DIR__ . '/process/products/store.php';
 });
 
+$router->map( 'POST', '/admin/product/new', function() {
+	require __DIR__ . '/process/products/store.php';
+});
+
 //Product
 // $router->map( 'GET', '/product/[i:id]', function() {
 // 	require __DIR__ . '/views/backend/product.php';
@@ -41,12 +53,6 @@ $display_item = function($id) {
 };
 
 $router->map('GET','/admin/product/[i:id]', $display_item, 'content');
-
-
-
-
-
-
 
 // match current request url
 $match = $router->match();

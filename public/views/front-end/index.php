@@ -28,8 +28,8 @@
 						</div>
 						<div class="login-rigister">
 							<ul class="unstyled-list list-inline">
-								<li><a class="login" href="#">Login</a></li>
-								<li><a class="rigister" href="#">REGISTER <span> </span></a></li>
+								<li><a class="login" href="login">Login</a></li>
+								<li><a class="rigister" href="register">REGISTER <span> </span></a></li>
 								<div class="clearfix"> </div>
 							</ul>
 						</div>
