@@ -13,6 +13,22 @@ class category {
 	}
 
 
+
+	//SHOW ALL PRODUCTS IN CATEGORY 
+	public function showProductsInCat($id)
+	{
+		$results = array();
+		$results['products'] =  $this->fpdo->from('ptoys_category_product')->leftJoin('ptoys_category AS category')->leftJoin('ptoys_product AS product')->select('product.*')->where('category.id', $id)->fetchAll();
+		$results['category'] = $this->fpdo->From('ptoys_category')->where('id', $id)->fetch();
+		return $results;
+
+	}
+
+	//SHOW ALL CATEGORIES 
+	public function index()
+	{
+		return $this->fpdo->from('ptoys_category')->fetchall();
+	}
 	//SHOW SINGLE CATEGORY
 	public function showCategory($id)
 	{

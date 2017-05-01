@@ -25,9 +25,28 @@ $router->map( 'POST', '/user', function() {
 	//require __DIR__ . '/controllers/user.php';
 });
 
+/*******Routing for frontend/non admins*******/
+$router->map( 'GET', '/public/product/[i:id]', function($id) {
+	$product = new product();
+	$product = $product->showProduct($id);
+	require __DIR__ . '/views/front-end/product.php';
+});
 
-$router->map( 'GET', '/public/lol', function() {
-	require __DIR__ . '/views/front-end/single-page.php';
+$router->map( 'GET', '/public/prod', function() {
+	require __DIR__ . '/views/front-end/products.php';
+});
+
+//Category
+$router->map( 'GET', '/public/category/', function() {
+	$cat = new Category();
+	$results = $cat->index();
+	require __DIR__ . '/views/front-end/category.php';
+});
+
+$router->map( 'GET', '/public/category/[i:id]', function($id) {
+	$cat = new Category();
+	$results = $cat->showProductsInCat($id);
+	require __DIR__ . '/views/front-end/products.php';
 });
 
 

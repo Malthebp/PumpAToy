@@ -882,6 +882,8 @@ img.r-img{
 .product-filter-grids{
 	background: #FFF;
 	padding: 0.1em 0.8em 1em 0.8em;
+	width: 100%;
+	display: table;
 }
 .product-filter-grid1-brands h3{
 	color:#2A2929;
