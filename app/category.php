@@ -17,10 +17,12 @@ class category {
 	//SHOW ALL PRODUCTS IN CATEGORY 
 	public function showProductsInCat($id)
 	{
-		$results = array();
-		$results['products'] =  $this->fpdo->from('ptoys_category_product')->leftJoin('ptoys_category AS category')->leftJoin('ptoys_product AS product')->select('product.*')->where('category.id', $id)->fetchAll();
-		$results['category'] = $this->fpdo->From('ptoys_category')->where('id', $id)->fetch();
-		return $results;
+		// $results = array();
+		// $results['products'] =  $this->fpdo->from('ptoys_category_product')->leftJoin('ptoys_category AS category')->leftJoin('ptoys_product AS product')->select('product.*')->where('category.id', $id)->fetchAll();
+		// $results['category'] = $this->fpdo->From('ptoys_category')->where('id', $id)->fetch();
+		// return $results;
+
+		return $this->fpdo->from('ptoys_product')->innerJoin('ptoys_category_product ON ptoys_product_id = ptoys_product.id')->innerJoin('ptoys_category ON ptoys_category_product.ptoys_category_id = ptoys_category.id')->select('ptoys_category.*')->fetchAll();
 
 	}
 

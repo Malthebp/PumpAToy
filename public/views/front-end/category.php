@@ -4,7 +4,7 @@
 
 	?>
 				<!--- products ---->
-				<div class="products">
+				<div class="products container">
 					<div class="product-filter">
 						<h1><a href="#">BRANDS</a></h1>
 						<div class="product-filter-grids"> 
@@ -55,3 +55,6 @@
 							</div>
 							</div>
 							<!---->
+							<?php 
+	include('footer.php');
+?>

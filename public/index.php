@@ -46,6 +46,7 @@ $router->map( 'GET', '/public/category/', function() {
 $router->map( 'GET', '/public/category/[i:id]', function($id) {
 	$cat = new Category();
 	$results = $cat->showProductsInCat($id);
+	var_dump($results);
 	require __DIR__ . '/views/front-end/products.php';
 });
 

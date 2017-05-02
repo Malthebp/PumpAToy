@@ -8,7 +8,7 @@
 		 <!-- Custom Theme files -->
 		<link href="<?php echo PUBLICROOT; ?>css/style.css" rel='stylesheet' type='text/css' />
    		 <!-- Custom Theme files -->
-   		 <!---- start-smoth-scrolling---->
+   		 <!-- start-smoth-scrolling-->
 		<script type="text/javascript" src="js/move-top.js"></script>
 		<script type="text/javascript" src="js/easing.js"></script>
 		<script type="text/javascript">
@@ -19,14 +19,14 @@
 				});
 			});
 		</script>
-		 <!---- start-smoth-scrolling---->
+		 <!-- start-smoth-scrolling-->
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 		</script>
-		<!----webfonts--->
+		<!--webfonts-->
 		<link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
-		<!---//webfonts--->
-		<!----start-top-nav-script---->
+		<!-- webfonts-->
+		<!--start-top-nav-script-->
 		<script>
 			$(function() {
 				var pull 		= $('#pull');
@@ -84,10 +84,10 @@
 				</div>
 				<div class="clearfix"> </div>
 			</div>
-			<!----//top-header---->
-			<!---top-header-nav---->
+			<!--top-header-->
+			<!---top-header-nav-->
 			<div class="top-header-nav"> 
-			<!----start-top-nav---->
+			<!--start-top-nav-->
 			 <nav class="top-nav main-menu">
 					<ul class="top-nav">
 						<li><a href="<?php echo PUBLICROOT; ?>">PRODUCTS </a><span> </span></li>
@@ -100,3 +100,4 @@
 					<a href="#" id="pull"><img src="images/nav-icon.png" title="menu" /></a>
 			  </nav>
 			  </div>
+			</div>

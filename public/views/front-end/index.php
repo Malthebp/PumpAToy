@@ -61,11 +61,11 @@
 			      </ul>
 			    </div>
 			    <div class="clearfix"> </div>
-			<!----- //End-slider---->
-			<!----content---->
+			<!--End-slider-->
+			<!--content-->
 				<div class="content">
 					<div class="container">
-				<!---top-row--->
+				<!---top-row-->
 				<div class="top-row">
 					<div class="col-xs-4">
 						<div class="top-row-col1 text-center">
@@ -99,9 +99,9 @@
 					</div>
 					<vdi class="clearfix"> </div>
 				</div>
-				<!---top-row--->
+				<!---top-row-->
 				<div class="container"> 
-				<!----speical-products---->
+				<!--speical-products-->
 				<div class="special-products">
 					<div class="s-products-head">
 						<div class="s-products-head-left">
@@ -112,7 +112,7 @@
 						</div>
 						<div class="clearfix"> </div>
 					</div>
-					<!----special-products-grids---->
+					<!--special-products-grids-->
 					<div class="special-products-grids">
 						<div class="col-md-3 special-products-grid text-center">
 							<a class="brand-name" href="single-page.html"><img src="images/b1.jpg" title="name" /></a>
@@ -164,12 +164,11 @@
 						</div>
 						<div class="clearfix"> </div>
 					</div>
-					<!---//special-products-grids---->
+					<!--special-products-grids-->
 				</div>
-				<!---//speical-products---->
+				<!--speical-products-->
 				</div>
-			<!----content---->
-	
-	</body>
-</html>
-
+			<!--content-->
+<?php 
+	include('footer.php');
+?>
